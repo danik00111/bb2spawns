@@ -1,0 +1,41 @@
+.filter-label, #display, .Toggle { margin: 0 4px; padding: 1px 4px; border-radius: 4px }
+button { cursor: pointer }
+button, input { background-color: lightgray }
+:focus { outline: 2px solid dodgerblue }
+#title, #huh-link, #about, #options { user-select: none }
+body:has(#about:target) { overflow: hidden }
+#about {
+  /* transition: background-color 0.5s ease-in-out; */
+  background-color: #00000000;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 0;
+  transform: translateY(100%);
+}
+#about:target {
+  /* transition: background-color 0.5s ease-in-out; */
+  transform: none;
+  z-index: 49;
+  background-color: #00000080;
+}
+#about-contents {
+  /* transition: transform 0.5s ease-in-out; */
+  font-size: 12px;
+  border-radius: 16px;
+  padding: 12px;
+  position: absolute;
+  width: 600px;
+  /* height: 400px; */
+  background: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 150%);
+}
+#about:target #about-contents {
+  /* transition: transform 0.5s ease-in-out; */
+  transform: translate(-50%, -50%);
+}
+#about-contents * { font-size: 12px }

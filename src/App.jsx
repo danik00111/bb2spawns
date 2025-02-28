@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     fetch(spawnslink, { method: "GET", headers: { "X-Bin-Meta":"false" } })
     .then(response => response.json())
-    .then(data => { console.log('fetched spawns!'); setSpawns(data) })
+    .then(data => { setSpawns(data) })
     .catch(error => alert('Error fetching spawns:', error));
   }, []);
 

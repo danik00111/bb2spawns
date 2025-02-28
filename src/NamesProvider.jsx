@@ -9,7 +9,7 @@ const NamesProvider =({children})=> {
   useEffect(() => {
     fetch(nameslink, { method: "GET", headers: { "X-Bin-Meta":"false" } })
     .then(response => response.json())
-    .then(data => { console.log('fetched names!'); setNames(data); })
+    .then(data => { setNames(data); })
     .catch(error => alert('Error fetching names:', error));
   }, []); // only run once
   

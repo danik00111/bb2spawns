@@ -18,7 +18,10 @@ function App() {
     fetch(spawnslink, { method: "GET", headers: { "X-Bin-Meta":"false" } })
     .then(response => response.json())
     .then(data => { setSpawns(data) })
-    .catch(error => alert('Error fetching spawns:', error));
+    .catch(error => {
+      alert('Error fetching spawns:', error);
+      console.error('Error fetching spawns:', error);
+    });
   }, []);
 
 

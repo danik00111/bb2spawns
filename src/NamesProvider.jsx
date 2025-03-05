@@ -10,7 +10,10 @@ const NamesProvider =({children})=> {
     fetch(nameslink, { method: "GET", headers: { "X-Bin-Meta":"false" } })
     .then(response => response.json())
     .then(data => { setNames(data); })
-    .catch(error => alert('Error fetching names:', error));
+    .catch(error => {
+      alert('Error fetching names:', error)
+      console.error('Error fetching names:', error)
+    });
   }, []); // only run once
   
   return <NamesContext.Provider value={names}>{children}</NamesContext.Provider>;

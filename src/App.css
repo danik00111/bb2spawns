@@ -2,7 +2,7 @@
 button { cursor: pointer }
 button, input { background-color: lightgray }
 :focus { outline: 2px solid dodgerblue }
-#title, #huh-link, #about, #options { user-select: none }
+#title, #huh-link, #about, #about-link, #options { user-select: none }
 body:has(#about:target) { overflow: hidden }
 #about {
   /* transition: background-color 0.5s ease-in-out; */
@@ -33,6 +33,11 @@ body:has(#about:target) { overflow: hidden }
   left: 50%;
   top: 50%;
   transform: translate(-50%, 150%);
+}
+@media (max-width: 696px) {
+  #about-contents {
+    width: 350px;
+  }
 }
 #about:target #about-contents {
   /* transition: transform 0.5s ease-in-out; */

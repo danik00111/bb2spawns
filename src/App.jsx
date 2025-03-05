@@ -44,6 +44,8 @@ function App() {
           - good old search inside the spawn texts themsleves
           <br/><br/>
           the data is pulled from jsonbin and is added there by hand
+          <br/><br/>
+          made using vite + reactjs
           <a style={{display:'block',width:'fit-content',margin:'0 auto'}} href='#'>close</a>
         </div>
       </div>

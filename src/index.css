@@ -1,10 +1,10 @@
-/* @import url(https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic); */
+@import url(https://fonts.googleapis.com/css?family=JetBrains+Mono:100,200,300,regular,500,600,700,800,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic);
 * {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
-  font-family: "JetBrains Mono", 'Courier New', Courier, monospace;
+  font-family: "JetBrains Mono", monospace;
   text-align: center;
   box-sizing: border-box;
   font-size: 16px;

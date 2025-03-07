@@ -48,6 +48,8 @@ function App() {
           <br/><br/>
           the data is pulled from jsonbin and is added there by hand
           <br/><br/>
+          file any sort of takedown request as a <a href='https://github.com/danik00111/bb2spawns/issues'>git issue</a>
+          <br/><br/>
           made using vite + reactjs
           <a style={{display:'block',width:'fit-content',margin:'0 auto'}} href='#'>close</a>
         </div>

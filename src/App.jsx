@@ -3,7 +3,8 @@ import './App.css';
 import Padding from './Padding.jsx';
 import SpawnCard from './SpawnCard.jsx';
 const spawnslink = 'https://api.jsonbin.io/v3/b/67a493c4ad19ca34f8faca8c/latest';
-
+import { useContext } from 'react';
+import NamesContext from './NamesContext.js';
 
 function App() {
   const [spawnFilter, setFilter] = useState({
@@ -24,6 +25,7 @@ function App() {
     });
   }, []);
 
+  const names = useContext(NamesContext);
 
   return (
     <>
@@ -36,7 +38,7 @@ function App() {
           <br/><br/>
           there are some filters at the top of the page, in order:
           <br/>
-          - from a certain user (click any name to copy it&apos;s id, paste that into userid)
+          - from a certain user<br/>(works with both the nick and the userid<br/>(which you can copy by clicking a name))
           <br/>
           - in the id range (ids are chronological)
           <br/>
@@ -58,7 +60,7 @@ function App() {
       <div id="options">
         <p className="option">Filters</p>
         <div id="filterlist">
-        <input id="input-user" className='input-user' type="number" onKeyDown={(e)=>e.key !== 'e'} placeholder="UserID" style={{width:'7ch'/* not feeling like dynamically coding this */}}
+        <input id="input-user" className='input-user' type="text" onKeyDown={(e)=>e.key !== 'e'} placeholder="User" style={{width:'5ch'/* not feeling like dynamically coding this */}}
         onInput={()=>{
           const inp = document.getElementById('input-user');
           inp.style.width = Math.max(inp.placeholder.length, inp.value.length)+1+'ch';
@@ -106,7 +108,10 @@ function App() {
               (x.ogtext!=undefined ? x.ogtext.toLowerCase().includes(spawnFilter.search.toLowerCase()) : false)
               ||x.text.toLowerCase().includes(spawnFilter.search.toLowerCase())
             )) return false;
-            if(spawnFilter.user != '') if(x.author != spawnFilter.user) return false;
+            if(!(
+              x.author == spawnFilter.user // id check
+              || (names[x.author]??'').toLowerCase().includes(spawnFilter.user.toLowerCase()) // name check
+            )) return false;
             return true;
           }).map(x=><SpawnCard {...x} key={x.id} text={(spawnFilter.displayOG && (x.ogtext!=undefined)) ? x.ogtext : x.text}/>)
         }

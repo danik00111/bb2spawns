@@ -8,7 +8,7 @@ import NamesContext from './NamesContext.js';
 
 function App() {
   const [spawnFilter, setFilter] = useState({
-    id: {min: 0, max: 5000},
+    id: {min: 0, max: 9999},
     search: '',
     user: '',
     displayOG: false
@@ -67,18 +67,18 @@ function App() {
           setFilter(x=>{x.user = inp.value; return {...x}});
         }}/>
         <span style={{display:'inline-block',width:'1ch'}}></span>
-        <input id="input-range-min" className='input-range-min' type="number" onKeyDown={(e)=>e.key !== 'e'} placeholder="min" min='100' max='5000' style={{width:'4ch'/* not feeling like dynamically coding this */}}
+        <input id="input-range-min" className='input-range-min' type="number" onKeyDown={(e)=>e.key !== 'e'} placeholder="min" min='100' max='9999' style={{width:'4ch'/* not feeling like dynamically coding this */}}
         onInput={()=>{
           const inp = document.getElementById('input-range-min');
           inp.style.width = Math.max(inp.placeholder.length, inp.value.length)+1+'ch';
           setFilter(x=>{x.id.min = inp.value.length==0 ? 0 : Number(inp.value); return {...x}});
         }}/>
         -
-        <input id="input-range-max" className='input-range-max' type="number" onKeyDown={(e)=>e.key !== 'e'} placeholder="max" min='100' max='5000' style={{width:'4ch'/* not feeling like dynamically coding this */}}
+        <input id="input-range-max" className='input-range-max' type="number" onKeyDown={(e)=>e.key !== 'e'} placeholder="max" min='100' max='9999' style={{width:'4ch'/* not feeling like dynamically coding this */}}
         onInput={()=>{
           const inp = document.getElementById('input-range-max');
           inp.style.width = Math.max(inp.placeholder.length, inp.value.length)+1+'ch';
-          setFilter(x=>{x.id.max = inp.value.length==0 ? 10000 : Number(inp.value); return {...x}});
+          setFilter(x=>{x.id.max = inp.value.length==0 ? 9999 : Number(inp.value); return {...x}});
         }}/>
         </div>
         <Padding size='16px'/>
